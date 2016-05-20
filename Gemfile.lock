@@ -250,7 +250,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   rake
-  responders (~> 2.0)
+  responders
   rollbar
   routing-filter
   rspec-rails
