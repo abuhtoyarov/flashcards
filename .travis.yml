@@ -5,6 +5,8 @@ script:
   - bundle exec rspec
 addons:
   postgresql: "9.4"
+  code_climate:
+      repo_token: b3c4f7fcf39727b2c0888d23c2d3cf0a8007d6303189daeb226b79f8cc8597ac
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
