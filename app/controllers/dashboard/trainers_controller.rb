@@ -1,4 +1,4 @@
-class Dashboard::TrainerController < Dashboard::BaseController
+class Dashboard::TrainersController < Dashboard::BaseController
 
   def index
     if params[:id]
