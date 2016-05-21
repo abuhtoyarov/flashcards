@@ -1,4 +1,4 @@
-class Dashboard::ProfileController < Dashboard::BaseController
+class Dashboard::ProfilesController < Dashboard::BaseController
 
   def edit
   end
