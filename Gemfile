@@ -33,6 +33,7 @@ gem 'routing-filter'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'rspec-rails'
