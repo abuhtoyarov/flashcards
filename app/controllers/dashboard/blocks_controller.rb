@@ -14,20 +14,13 @@ class Dashboard::BlocksController < Dashboard::BaseController
   end
 
   def create
-    @block = current_user.blocks.build(block_params)
-    if @block.save
-      redirect_to blocks_path
-    else
-      respond_with @block
-    end
+    @block = current_user.blocks.create(block_params)
+    respond_with(@block , location: blocks_path)
   end
 
   def update
-    if @block.update(block_params)
-      redirect_to blocks_path
-    else
-      respond_with @block
-    end
+    @block.update(block_params)
+    respond_with(@block, location: blocks_path)
   end
 
   def destroy

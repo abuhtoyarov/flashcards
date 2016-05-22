@@ -2,7 +2,7 @@ class Dashboard::CardsController < Dashboard::BaseController
   before_action :set_card, only: [:destroy, :edit, :update]
 
   def index
-    @cards = current_user.cards.all.order('review_date')
+    @cards = current_user.cards.sorted
   end
 
   def new
@@ -13,20 +13,13 @@ class Dashboard::CardsController < Dashboard::BaseController
   end
 
   def create
-    @card = current_user.cards.build(card_params)
-    if @card.save
-      redirect_to cards_path
-    else
-      respond_with @card
-    end
+    @card = current_user.cards.create(card_params)
+    respond_with(@card, location: cards_path)
   end
 
   def update
-    if @card.update(card_params)
-      redirect_to cards_path
-    else
-      respond_with @card
-    end
+    @card.update(card_params)
+    respond_with(@card, location: cards_path)
   end
 
   def destroy

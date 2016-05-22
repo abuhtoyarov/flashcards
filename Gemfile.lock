@@ -100,6 +100,7 @@ GEM
       activesupport (>= 4.1.0)
     http_accept_language (2.0.5)
     i18n (0.7.0)
+    interactor (3.1.0)
     ipaddress (0.8.3)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -255,6 +256,7 @@ DEPENDENCIES
   figaro
   fog-aws
   http_accept_language
+  interactor
   jbuilder (~> 2.0)
   jquery-rails
   levenshtein
