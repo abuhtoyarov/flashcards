@@ -15,7 +15,7 @@ class Card < ActiveRecord::Base
 
   mount_uploader :image, CardImageUploader
 
-  scope :pending, -> { where('review_date <= ?', Time.now).order('RANDOM()') }
+  scope :pending, -> { where('review_date <= ?', Time.current).order('RANDOM()') }
   scope :repeating, -> { where('quality < ?', 4).order('RANDOM()') }
   scope :sorted, -> { order('review_date') }
 
@@ -26,7 +26,7 @@ class Card < ActiveRecord::Base
     sm_hash = SuperMemo.algorithm(interval, repeat, efactor, attempt, distance, 1)
 
     if distance <= 1
-      sm_hash.merge!({ review_date: Time.now + interval.to_i.days, attempt: 1 })
+      sm_hash.merge!({ review_date: Time.current + interval.to_i.days, attempt: 1 })
       update(sm_hash)
       { state: true, distance: distance }
     else
@@ -48,7 +48,7 @@ class Card < ActiveRecord::Base
   protected
 
   def set_review_date_as_now
-    self.review_date = Time.now
+    self.review_date = Time.current
   end
 
   def texts_are_not_equal
