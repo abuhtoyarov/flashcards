@@ -2,7 +2,7 @@ class Dashboard::CardsController < Dashboard::BaseController
   before_action :set_card, only: [:destroy, :edit, :update]
 
   def index
-    @cards = current_user.cards.sorted
+    @cards = current_user.cards.sorted_by_review_date
   end
 
   def new
