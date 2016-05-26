@@ -4,19 +4,18 @@ Rails.application.routes.draw do
   root 'main#index'
 
   scope module: 'home' do
-    resources :user_sessions, only: [:new, :create]
-    resources :users, only: [:new, :create]
-    get 'login' => 'user_sessions#new', :as => :login
+    resources :user_sessions, :users, only: [:new, :create]
 
-    post 'oauth/callback' => 'oauths#callback'
-    get 'oauth/callback' => 'oauths#callback'
+    get 'login' => 'user_sessions#new', as: :login
+
+    match 'oauth/callback' => 'oauths#callback', via: [:get, :post]
     get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
   end
 
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
     resources :users, only: :destroy
-    post 'logout' => 'user_sessions#destroy', :as => :logout
+    post 'logout' => 'user_sessions#destroy', as: :logout
 
     resources :cards
 
@@ -27,10 +26,9 @@ Rails.application.routes.draw do
       end
     end
 
-    put 'review_card' => 'trainer#review_card'
-    get 'trainer' => 'trainer#index'
+    put 'review_card' => 'trainers#review_card'
+    get 'trainer' => 'trainers#index'
 
-    get 'profile/:id/edit' => 'profile#edit', as: :edit_profile
-    put 'profile/:id' => 'profile#update', as: :profile
+    resources :profiles, only: [:edit, :update]
   end
 end

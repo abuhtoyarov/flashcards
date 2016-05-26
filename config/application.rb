@@ -8,6 +8,15 @@ Bundler.require(*Rails.groups)
 
 module Flashcards
   class Application < Rails::Application
+
+    config.generators do |g|
+      g.template_engine :slim
+    end
+
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
+    config.active_record.raise_in_transactional_callbacks = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -16,7 +25,7 @@ module Flashcards
     # auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names.
     # Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Moscow'
 
     # The default locale is :en and all translations from
     # config/locales/*.rb,yml are auto loaded.

@@ -44,3 +44,5 @@ en:
           too_short: 'Short value.'
           confirmation: 'Values do not match.'
           taken: 'Not a unique value.'
+      exceptions:
+        not_found: 'You referenced a nonexistent record.'
