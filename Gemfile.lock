@@ -114,6 +114,7 @@ GEM
     json (1.8.3)
     jwt (1.5.1)
     levenshtein (0.2.2)
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -174,6 +175,7 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rollbar (2.11.3)
@@ -233,6 +235,9 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.7.6)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.4)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -283,6 +288,7 @@ DEPENDENCIES
   simple_form
   slim-rails
   sorcery
+  therubyracer
   thin
   uglifier (>= 1.3.0)
   whenever
@@ -291,4 +297,4 @@ RUBY VERSION
    ruby 2.2.0p0
 
 BUNDLED WITH
-   1.12.4
+   1.12.5
