@@ -35,6 +35,7 @@ gem 'newrelic_rpm'
 gem 'responders'
 gem 'slim-rails'
 gem 'interactor'
+gem 'thin'
 
 group :development, :test do
   gem 'rspec-rails'
